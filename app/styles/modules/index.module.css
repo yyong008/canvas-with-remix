@@ -1,0 +1,28 @@
+.listWrap {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.item {
+  display: flex;
+  justify-content: center;
+  
+  margin: 10px 10px;
+}
+
+.item a {
+  display: block;
+  padding: 0px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  border-bottom: 1px solid salmon;
+  width: 200px;
+  text-align: center;
+}
+
+.item a:hover {
+  background-color: salmon;
+  color: #fff;
+}
+

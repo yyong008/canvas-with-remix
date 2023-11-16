@@ -1,4 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
+import { Link } from "@remix-run/react";
+import styles from '~/styles/modules/index.module.css'
 
 export const meta: MetaFunction = () => {
   return [
@@ -8,34 +10,29 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Index() {
+
+  const data = [
+    {id: 0, name: 'line' },
+    {id: 1, name: 'arrow' },
+    {id: 2, name: 'circle' },
+    {id: 3, name: 'diamond' },
+    {id: 4, name: 'image' },
+    {id: 6, name: 'rectangle' },
+    {id: 7, name: 'square' },
+    {id: 8, name: 'star' },
+    {id: 9, name: 'triangle' },
+    {id: 10, name: 'video' },
+  ]
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>Welcome to Remix</h1>
-      <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
-      </ul>
+      <h1 style={{ textAlign: 'center' }}>Canvas With Remix and RxJS</h1>
+      <div className={styles.listWrap}>
+        {data.map((item) => {
+          return <div key={item.id} className={styles.item}>
+            <Link to={`/shape/${item.name}`}>{item.name}</Link>
+          </div>
+        })}
+      </div>
     </div>
   );
 }
